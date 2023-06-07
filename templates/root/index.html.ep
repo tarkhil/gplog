@@ -1,0 +1,16 @@
+<form method="POST">
+  <div>
+    <label for="address">Выберите адрес</label><input type="text" name="address" id="address">
+  </div>
+  <div>
+    <input type="submit">
+  </div>
+</form>
+% if ( $results ) {
+<div>
+  <div>Всего записей <%= $count %></div>
+  % for my $r ( @$results ) {
+  <div><%= $r->{created} %> <%= $r->{str} %></div>
+  % }
+</div>
+% }

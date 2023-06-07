@@ -47,4 +47,15 @@ sub parse($self,$line) {
   return $record;
 }
 
+sub count_combined($self,$address) {
+  return $self->pg->db->select( combined => [ \ 'count(*)' ] => { address => $address } )
+    ->array->[0];
+}
+
+sub select_combined($self,$address,$limit=100,$offset=0) {
+  return $self->pg->db->select( combined => [qw/created str/] => { address => $address }
+				=> { order_by => [qw/int_id created/], limit => $limit, offset => $offset } )
+    ->hashes()->TO_JSON;
+}
+
 1;
