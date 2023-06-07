@@ -3,8 +3,6 @@ use Mojo::Base 'MojoX::Model',-signatures;
 use Mojo::Exception;
 use Regexp::Common qw/time/;
 
-use DateTime::Format::Pg;
-
 sub tidy_hash($orig, $fields) {
   return { map { ( $_ => $orig->{$_} ) } @$fields };
 }

@@ -2,7 +2,7 @@ use strict;
 
 use Test::More;
 
-foreach (qw/Mojolicious Mojolicious::Plugin::Model::DB Mojo::Pg DateTime::Format::Pg
+foreach (qw/Mojolicious Mojolicious::Plugin::Model::DB Mojo::Pg
 	    Regexp::Common::time /) {
   require_ok($_);
 }
