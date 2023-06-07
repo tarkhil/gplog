@@ -1,12 +1,14 @@
 package GPLog;
 use Mojo::Base 'Mojolicious', -signatures;
 
-# This method will run once at server start
 sub startup ($self) {
-
-  # Load configuration from config file
+  push @{$self->plugins->namespaces},  __PACKAGE__.'::Plugin';
+  push @{$self->commands->namespaces}, __PACKAGE__.'::Command';
   my $config = $self->plugin('NotYAMLConfig');
-
+  $self->plugin('Model::DB',
+		Pg =>  $self->config->{pg}
+	       );
+  
   # Configure the application
   $self->secrets($config->{secrets});
 

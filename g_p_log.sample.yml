@@ -1,0 +1,5 @@
+---
+secrets:
+  - 23dee36b61f97c0e0b0c4b66f4cde51e8b696e01
+
+pg: postgres://gplog:***@/gplog

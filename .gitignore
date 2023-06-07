@@ -142,4 +142,6 @@ pnpm-debug.log*
 .*.json
 
 /public/dist/**
+
+/data
 g_p_log.yml
