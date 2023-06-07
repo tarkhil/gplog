@@ -1,0 +1,30 @@
+Написано с использованием фреймворка Mojolicious
+
+Требуемые модули кроме собственно Mojolicious:
+
+Mojo::Pg
+MojoX::Model
+Regexp::Common::time
+
+Наверное, надо как-то прописать в Makefile установку зависимостей.
+
+По факту в Makefile работает make test
+
+Для инициализации базы используется файл sql/init.sql
+
+Для инициализации view используется файл sql/combined.sql
+
+Для парсинга используется команда ./script/gplog parse (с флагом -h выдает краткую справку)
+
+Для запуска веб-сервиса используется, например, morbo
+
+morbo ./script/gplog
+
+запустит сервер на порту 3000
+
+man morbo для дальнейших деталей или даже Mojolicious::Guides::Cookbook раздел deployment
+
+конфиг g_p_log.sample.yml нужно скопировать в g_p_log.yml и прописать логин-пароль-хост-базу
+
+(подробнее о формате в perldoc Mojo::Pg)
+
